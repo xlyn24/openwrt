@@ -16,6 +16,7 @@ case "$FIRMWARE" in
 	dynalink,dl-wrx36|\
 	edgecore,eap102|\
 	edimax,cax1800|\
+	linksys,mx4200v1|\
 	linksys,mx5300|\
 	netgear,rax120v2|\
 	netgear,wax218|\
@@ -30,17 +31,12 @@ case "$FIRMWARE" in
 	zyxel,nbg7815)
 		caldata_extract "0:art" 0x1000 0x20000
 		;;
-	linksys,mx4200v1)
-		caldata_extract "0:art" 0x1000 0x20000
-		ath11k_remove_regdomain
-		;;
 	linksys,mx4200v2)
 		caldata_extract "0:art" 0x1000 0x20000
 		label_mac=$(mtd_get_mac_ascii devinfo hw_mac_addr)
 		ath11k_patch_mac $(macaddr_add $label_mac 2) 1
 		ath11k_patch_mac $(macaddr_add $label_mac 1) 2
 		ath11k_patch_mac $(macaddr_add $label_mac 3) 3
-		ath11k_remove_regdomain
 		ath11k_fix_caldata
 		;;
 	prpl,haze)
