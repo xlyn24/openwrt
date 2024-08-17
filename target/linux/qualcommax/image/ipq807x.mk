@@ -174,6 +174,17 @@ define Device/linksys_mx4x00
 	DEVICE_PACKAGES += ipq-wifi-linksys_mx4200
 endef
 
+define Device/linksys_homewrk
+	$(call Device/linksys_mx4x00)
+	DEVICE_MODEL := HomeWRK
+	BLOCKSIZE := 256k
+	PAGESIZE := 4096
+	IMAGE_SIZE := 171264k
+	NAND_SIZE := 1024m
+	KERNEL_IN_UBI := 1
+endef
+TARGET_DEVICES += linksys_homewrk
+
 define Device/linksys_mx4200v1
 	$(call Device/linksys_mx4x00)
 	DEVICE_MODEL := MX4200
