@@ -51,6 +51,5 @@ jobs:
             - name: Release
               uses: ncipollo/release-action@v1
               with:
-                tag: qualcommax-${{ env.SHA }}
-                artifacts: bin/targets/qualcommax/ipq807x/*             
-#                artifacts: bin/targets/qualcommax/ipq807x/openwrt-qualcommax-ipq807x-*
+                tag: qualcommax-${{ env.SHA }}           
+                artifacts: bin/targets/qualcommax/ipq807x/openwrt-qualcommax-ipq807x-*
